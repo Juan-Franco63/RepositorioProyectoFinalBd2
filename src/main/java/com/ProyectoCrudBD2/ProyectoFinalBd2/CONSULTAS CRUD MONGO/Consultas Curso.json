@@ -1,0 +1,43 @@
+{
+    "_comment": "CONSULTAS CURSO"
+},
+// Create (Insert)
+db.cursos.insertMany([
+    {
+      "_id": "C_001",
+      "category": "Music",
+      "cost": 100000,
+      "name": "Guitar for Noobies",
+      "tutor_id": "T_001",
+      "ratings": [
+        { "usuario_id": "U_001", "rating": 4 }
+      ]
+    },
+    {
+      "_id": "C_002",
+      "category": "Programming",
+      "cost": 150000,
+      "name": "JavaScript Basics",
+      "tutor_id": "T_002",
+      "ratings": [
+        { "usuario_id": "U_002", "rating": 3 }
+      ]
+    },
+    // 8 documentos más
+  ])
+  
+  // Read (Find)
+  db.cursos.find({ "_id": "C_001" }) // Encuentra el curso con ID C_001
+  
+  // Read All (FindAll)
+  db.cursos.find({}) // Encuentra todos los cursos
+  
+  // Update
+  db.cursos.updateOne(
+    { "_id": "C_001" },
+    { $set: { "cost": 120000 } }
+  ) // Actualiza el costo del curso de guitarra
+  
+  // Delete
+  db.cursos.deleteOne({ "_id": "C_002" }) // Borra el curso con ID C_002
+  
