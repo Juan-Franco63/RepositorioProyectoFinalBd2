@@ -2,7 +2,17 @@
     "_comment": "CONSULTAS tutor"
 },
 // Create (Insert)
-db.tutores.insertMany([
+db.Tutores.insertOne({
+  "_id": "T_001",
+  "name": "Alfonso Marilopez",
+  "email": "AlfonoMar@gmail.com",
+  "cursos": [
+    "C_001",
+    "C_003"
+  ]
+})
+
+db.Tutores.insertMany([
     {
       "_id": "T_001",
       "name": "Alfonso Marilopez",
@@ -19,17 +29,17 @@ db.tutores.insertMany([
   ])
   
   // Read (Find)
-  db.tutores.find({ "_id": "T_001" }) // Encuentra al tutor con ID T_001
+  db.Tutores.find({ "_id": "T_001" }) // Encuentra al tutor con ID T_001
   
   // Read All (FindAll)
-  db.tutores.find({}) // Encuentra todos los tutores
+  db.Tutores.find({}) // Encuentra todos los tutores
   
   // Update
-  db.tutores.updateOne(
+  db.Tutores.updateOne(
     { "_id": "T_001" },
     { $set: { "email": "AlfonsoNewEmail@gmail.com" } }
   ) // Actualiza el correo de Alfonso
   
   // Delete
-  db.tutores.deleteOne({ "_id": "T_002" }) // Borra al tutor con ID T_002
+  db.Tutores.deleteOne({ "_id": "T_002" }) // Borra al tutor con ID T_002
   

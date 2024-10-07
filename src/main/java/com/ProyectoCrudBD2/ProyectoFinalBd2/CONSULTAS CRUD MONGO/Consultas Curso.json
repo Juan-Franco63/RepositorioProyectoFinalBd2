@@ -2,42 +2,78 @@
     "_comment": "CONSULTAS CURSO"
 },
 // Create (Insert)
-db.cursos.insertMany([
+db.Cursos.insertOne({
+  _id: 'C_001',
+  category: 'Music',
+  cost: 100000,
+  name: 'Guitar for Noobies',
+  tutor_id: 'T_001',
+  ratings: [
     {
-      "_id": "C_001",
-      "category": "Music",
-      "cost": 100000,
-      "name": "Guitar for Noobies",
-      "tutor_id": "T_001",
-      "ratings": [
-        { "usuario_id": "U_001", "rating": 4 }
-      ]
-    },
-    {
-      "_id": "C_002",
-      "category": "Programming",
-      "cost": 150000,
-      "name": "JavaScript Basics",
-      "tutor_id": "T_002",
-      "ratings": [
-        { "usuario_id": "U_002", "rating": 3 }
-      ]
-    },
-    // 8 documentos más
-  ])
+      usuario_id: 'U_001',
+      rating: 4
+    }
+  ]
+})
+
+db.Cursos.insertMany([
+  {
+    _id: 'C_002',
+    category: 'Programming',
+    cost: 150000,
+    name: 'Programming for Beginners',
+    tutor_id: 'T_002',
+    ratings: [
+      {
+        usuario_id: 'U_002',
+        rating: 9.8
+      }
+    ]
+  },
+  {
+    _id: 'C_003',
+    category: 'Music',
+    cost: 180000,
+    name: 'Guitar for Pros',
+    tutor_id: 'T_001',
+    ratings: [
+      {
+        usuario_id: 'U_001',
+        rating: 5
+      }
+    ]
+  },
+  {
+    _id: 'C_005',
+    category: 'Programming',
+    cost: 150000,
+    name: 'Introduction to Python',
+    tutor_id: 'T_003',
+    ratings: []
+  },
+  {
+    _id: 'C_007',
+    category: 'Art',
+    cost: 70000,
+    name: 'Digital Art Fundamentals',
+    tutor_id: 'T_005',
+    ratings: []
+  }
+])
+
   
   // Read (Find)
-  db.cursos.find({ "_id": "C_001" }) // Encuentra el curso con ID C_001
+  db.Cursos.findOne({_id: 'C_001'}) // Encuentra el curso con ID C_001
   
   // Read All (FindAll)
-  db.cursos.find({}) // Encuentra todos los cursos
+  db.Cursos.find({}) // Encuentra todos los cursos
   
   // Update
-  db.cursos.updateOne(
+  db.Cursos.updateOne(
     { "_id": "C_001" },
     { $set: { "cost": 120000 } }
   ) // Actualiza el costo del curso de guitarra
   
   // Delete
-  db.cursos.deleteOne({ "_id": "C_002" }) // Borra el curso con ID C_002
+  db.Cursos.deleteOne({ "_id": "C_002" }) // Borra el curso con ID C_002
   

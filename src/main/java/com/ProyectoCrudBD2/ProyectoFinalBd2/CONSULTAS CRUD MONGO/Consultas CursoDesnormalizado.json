@@ -2,6 +2,39 @@
   "_comment": "CONSULTAS tutor"
 },
 // Create (Insert)
+
+db.curso_desnormalizado.insertOne({
+  "_id": "C_001",
+  "category": "Music",
+  "cost": 100000,
+  "name": "Guitar for Noobies",
+  "tutor": {
+    "_id": "T_001",
+    "name": "Alfonso Marilopez",
+    "email": "AlfonoMar@gmail.com"
+  },
+  "ratings": [
+    {
+      "usuario_id": "U_001",
+      "rating": 4
+    },
+    {
+      "usuario_id": "U_002",
+      "name": "Juan Franco",
+      "email": "JPablofranco@gmail.com",
+      "rating": 4
+    }
+  ],
+  "usuarios_matriculados": [
+    {
+      "_id": "U_002",
+      "name": "Juan Franco",
+      "email": "JPablofranco@gmail.com"
+    }
+  ]
+})
+
+//Insert Many
 db.curso_desnormalizado.insertMany([
   {
     "_id": "C_001",
@@ -37,7 +70,6 @@ db.curso_desnormalizado.insertMany([
       { "_id": "U_002", "name": "Ana Pérez", "email": "AnaPerez@gmail.com" }
     ]
   },
-  // 8 documentos más
 ])
 
 // Read (Find)
